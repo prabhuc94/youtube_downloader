@@ -20,8 +20,8 @@ def fetch_resolutions(link):
     return resolutions
 
 
-def download(link, tag, res, on_progress):
-    yt = YouTube(link, on_progress_callback=on_progress)
+def download(link, tag, res, on_progress, on_complete):
+    yt = YouTube(link, on_progress_callback=on_progress, on_complete_callback=on_complete)
     downloads_path = str(Path.home() / "Downloads")
     if tag != 0:
         yt.streams.get_by_itag(tag).download(output_path=downloads_path)
