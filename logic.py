@@ -7,6 +7,7 @@ from file_sizer import convert_size
 def fetch_resolutions(link):
     yt = YouTube(link)
     resolutions = []
+    print(yt.streams)
     for s in yt.streams.filter(type='video'):
         if s.is_progressive:
             resolutions.append({
